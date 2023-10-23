@@ -4,7 +4,7 @@ import Details from './components/Details'
 
 function App() {
   return (
-    <Router>
+<Router>
       <Routes>
         <Route path="/" element={<Dex />}/>
         <Route path="/pokemon/:id" element={<Details />}/>
