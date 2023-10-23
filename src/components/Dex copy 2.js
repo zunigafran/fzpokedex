@@ -23,22 +23,18 @@ export default function Dex() {
 
   return (
     <div>
-      {/* Card */}
-      <div>
-        {/* Overlay */}
-        <div>
-        <ul>
+      <h1>Pika</h1>
+      <ul>
         {pokemonData.map((pokemon) => (
           <li key={pokemon.id}>
             <Link to={`/details/${pokemon.id}`}>
-              <p>No.{pokemon.id}</p>
+              <p>Index: {pokemon.id}</p>
+              <p>Name: {pokemon.name}</p>
               <img src={pokemon.icon} alt={pokemon.name} />
             </Link>
           </li>
         ))}
       </ul>
-        </div>
-      </div>
     </div>
   );
 }
