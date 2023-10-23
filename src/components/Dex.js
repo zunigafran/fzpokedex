@@ -21,11 +21,13 @@ export default function Dex() {
 
   return (
     <div>
-      <h1>Pokedex</h1>
+      <h1>Pika Dex</h1>
       <ul>
-        {pokemonData.map((pokemon) => (
-          <li key={pokemon.id}>
-            <Link to={`/pokemon/${pokemon.id}`}>{pokemon.name}</Link>
+        {pokemonData.map((pokemon, index) => (
+          <li key={index}>
+            <Link to={`/details/${index + 1}`}> {/* Link to the Details page */}
+              {pokemon.name}
+            </Link>
           </li>
         ))}
       </ul>
