@@ -1,14 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Dex from './Dex';
-import Details from './Details';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Dex from './components/Dex';
+import Details from './components/Details'
 
 function App() {
   return (
     <Router>
-        <Route exact path="/" component={Dex} />
-        <Route path="/details/:index" component={Details} />
-    </Router>
+      <Routes>
+        <Route path="/" element={<Dex />}/>
+        <Route path="/pokemon/:id" element={<Details />}/>
+      </Routes>
+   </Router>
   );
 }
 

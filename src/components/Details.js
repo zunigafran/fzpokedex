@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { ICON_API_URL, IMG_API_URL } from '../config';
 
 export default function Details({ match }) {
   const [pokemonDetails, setPokemonDetails] = useState(null);

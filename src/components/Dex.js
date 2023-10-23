@@ -27,9 +27,11 @@ export default function Dex() {
       <ul>
         {pokemonData.map((pokemon) => (
           <li key={pokemon.id}>
-            <p>Index: {pokemon.id}</p>
-            <p>Name: {pokemon.name}</p>
-            <img src={pokemon.icon} alt={pokemon.name} />
+            <Link to={`/details/${pokemon.id}`}>
+              <p>Index: {pokemon.id}</p>
+              <p>Name: {pokemon.name}</p>
+              <img src={pokemon.icon} alt={pokemon.name} />
+            </Link>
           </li>
         ))}
       </ul>
