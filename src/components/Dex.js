@@ -13,6 +13,8 @@ export default function Dex() {
         let newPokemonData = results.map((pokemon, index) => ({
           id: index + 1,
           name: pokemon.name,
+          url: `${IMG_API_URL}${index + 1}.png`,
+          icon: `${ICON_API_URL}${index + 1}.png`,
         }));
         setPokemonData(newPokemonData);
       }

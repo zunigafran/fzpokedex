@@ -1,12 +1,14 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import Dex from "./components/Dex";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Dex from './Dex';
+import Details from './Details';
 
 function App() {
   return (
-  <Router>
-    <Dex />
-  </Router>
+    <Router>
+        <Route exact path="/" component={Dex} />
+        <Route path="/details/:index" component={Details} />
+    </Router>
   );
 }
 
