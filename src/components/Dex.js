@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { ICON_API_URL, IMG_API_URL, POKEMON_API_URL } from '../config'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import './Dex.css'
 
 export default function Dex() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -32,7 +33,7 @@ export default function Dex() {
           <li key={pokemon.id}>
             <Link to={`/details/${pokemon.id}`}>
               <p>No.{pokemon.id}</p>
-              <img src={pokemon.icon} alt={pokemon.name} />
+              <img src={pokemon.icon} alt={pokemon.name} id="icon"/>
             </Link>
           </li>
         ))}
