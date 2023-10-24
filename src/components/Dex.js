@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { ICON_API_URL, IMG_API_URL, POKEMON_API_URL } from '../config'
 import { Link } from 'react-router-dom'
 import './Dex.css'
-import Ball from './Ball.png'
 
 export default function Dex() {
   const [pokemonData, setPokemonData] = useState([]);

@@ -19,13 +19,23 @@ const Details = () => {
     return <div>Loading...</div>;
   }
 
+  const { name, sprites, stats, moves, height, weight, abilities, types } = pokemonDetails;
+
   return (
     <div>
-      <h2>{pokemonDetails.name}</h2>
-      <img src={pokemonDetails.sprites.front_default} alt={pokemonDetails.name} />
+      <h2>{name}</h2>
+      <img src={sprites.front_default} alt={name} />
       <h3>Stats:</h3>
       <ul>
-        {pokemonDetails.stats.map((stat) => (
+        <h3>Height:</h3>
+        <p>{(height * 0.328084).toFixed(2)} ft</p> {/* Convert to feet */}
+        <p>{(height / 10).toFixed(2)} meters</p> {/* Convert to meters */}
+        <h3>Weight:</h3>
+        <p>{(weight * 0.220462).toFixed(2)} lbs</p> {/* Convert to pounds */}
+        <p>{(weight / 10).toFixed(2)} kg</p> {/* Convert to kilograms */}
+        <h3>Abilities:</h3>
+        <ul>
+        {stats && stats.map((stat) => (
           <li key={stat.stat.name}>
             {stat.stat.name}: {stat.base_stat}
           </li>
@@ -33,8 +43,25 @@ const Details = () => {
       </ul>
       <h3>Moves:</h3>
       <ul>
-        {pokemonDetails.moves.slice(0, 5).map((move) => (
-          <li key={move.move.name}>{move.move.name}</li>
+        {moves && moves.slice(0, 150).map((move) => (
+          <li key={move.move.name}>
+            {move.move.name}
+            <ul>
+              <li>Type: {move.move.type && move.move.type.name}</li>
+              <li>Damage Class: {move.move.damage_class && move.move.damage_class.name}</li>
+              <li>PP: {move.move.pp}</li>
+            </ul>
+          </li>
+        ))}
+      </ul>
+        {abilities && abilities.map((ability) => (
+          <li key={ability.ability.name}>{ability.ability.name}</li>
+        ))}
+      </ul>
+      <h3>Types:</h3>
+      <ul>
+        {types && types.map((type) => (
+          <li key={type.type.name}>{type.type.name}</li>
         ))}
       </ul>
     </div>
