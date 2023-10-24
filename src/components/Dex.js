@@ -14,9 +14,7 @@ export default function Dex() {
         let newPokemonData = results.map((pokemon, index) => ({
           id: index + 1,
           name: pokemon.name,
-          url: `${IMG_API_URL}${index + 1}.png`,
-          icon: `${ICON_API_URL}${index + 1}.png`,
-
+          image: index < 898 ? `${ICON_API_URL}${index + 1}.png` : `${IMG_API_URL}${index + 1}.png`,
         }));
         setPokemonData(newPokemonData);
       }
@@ -28,19 +26,21 @@ export default function Dex() {
       {/* Card */}
       <div>
         {/* Overlay */}
-        <div>
         <ul className='max-w-[1640px] mx-auto p-4 py-12 grid grid-cols-9 xs:grid-cols-3 gap-4'>
         {pokemonData.map((pokemon) => (
           <li key={pokemon.id}>
             <Link to={`/details/${pokemon.id}`}>
               <p id="dexnum">No.{pokemon.id}</p>
-              <img src={pokemon.icon} alt={pokemon.url} id="icon"/>
+              {pokemon.id < 899 ? (
+                <img src={pokemon.image} alt={pokemon.name} id="icon" />
+                ) : (
+                  <img src={pokemon.image} alt={pokemon.name} id="image" />
+                  )}
             </Link>
           </li>
         ))}
       </ul>
         </div>
-      </div>
-    </div>
+        </div>
   );
 }
