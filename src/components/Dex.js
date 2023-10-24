@@ -8,7 +8,7 @@ export default function Dex() {
   const [pokemonData, setPokemonData] = useState([]);
 
   useEffect(() => {
-    axios.get(POKEMON_API_URL + '?limit=151').then((response) => {
+    axios.get(POKEMON_API_URL + '?limit=1017').then((response) => {
       if (response.status >= 200 && response.status < 300) {
         const { results } = response.data;
         let newPokemonData = results.map((pokemon, index) => ({
@@ -16,6 +16,7 @@ export default function Dex() {
           name: pokemon.name,
           url: `${IMG_API_URL}${index + 1}.png`,
           icon: `${ICON_API_URL}${index + 1}.png`,
+
         }));
         setPokemonData(newPokemonData);
       }
@@ -28,12 +29,12 @@ export default function Dex() {
       <div>
         {/* Overlay */}
         <div>
-        <ul>
+        <ul className='max-w-[1640px] mx-auto p-4 py-12 grid grid-cols-9 xs:grid-cols-3 gap-4'>
         {pokemonData.map((pokemon) => (
           <li key={pokemon.id}>
             <Link to={`/details/${pokemon.id}`}>
-              <p>No.{pokemon.id}</p>
-              <img src={pokemon.icon} alt={pokemon.name} id="icon"/>
+              <p id="dexnum">No.{pokemon.id}</p>
+              <img src={pokemon.icon} alt={pokemon.url} id="icon"/>
             </Link>
           </li>
         ))}
