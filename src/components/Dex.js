@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { ICON_API_URL, IMG_API_URL, POKEMON_API_URL } from '../config'
 import { Link } from 'react-router-dom'
 import './Dex.css'
+import Ball from './Ball.png'
 
 export default function Dex() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -24,7 +25,7 @@ export default function Dex() {
   return (
     <div>
       {/* Card */}
-      <div>
+      <div className='relative'>
         {/* Overlay */}
         <ul className='max-w-[1640px] mx-auto p-4 py-12 grid grid-cols-9 xs:grid-cols-3 gap-4'>
         {pokemonData.map((pokemon) => (
