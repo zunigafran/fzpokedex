@@ -1,3 +1,27 @@
+* {
+    text-transform: capitalize;
+}
+
 #table {
-    width: 1160px;
+    width: 150px;
+    justify-items:center;
+}
+
+#stats {
+    width: 300px;
+}
+
+#icon {
+    width:100px;
+    margin: 0 30px 0 30px;
+}
+
+#pknam {
+    width:100px;
+    margin-left: 60px;
+}
+
+#pktype, #abi {
+    width:100px;
+    margin-right: 10px;
 }
